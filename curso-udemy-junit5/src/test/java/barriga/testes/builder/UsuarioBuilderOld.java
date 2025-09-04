@@ -11,13 +11,13 @@ public class UsuarioBuilderOld {
     // Construtor estático para iniciar o builder, ninguem fora dessa classe pode instanciar diretamente o UsuarioBuilder.
     private UsuarioBuilderOld(){}
 
-    public static barriga.testes.builders.UsuarioBuilderOld umUsuario() {
-        barriga.testes.builders.UsuarioBuilderOld builder = new barriga.testes.builders.UsuarioBuilderOld();
+    public static barriga.testes.builder.UsuarioBuilderOld umUsuario() {
+        barriga.testes.builder.UsuarioBuilderOld builder = new barriga.testes.builder.UsuarioBuilderOld();
         inicializarDadosPadroes(builder);
         return builder;
     }
 
-    private static void inicializarDadosPadroes(barriga.testes.builders.UsuarioBuilderOld builder) {
+    private static void inicializarDadosPadroes(barriga.testes.builder.UsuarioBuilderOld builder) {
         builder.id = 1L;
         builder.nome = "Usuario valido";
         builder.email = "user@email.com";
@@ -25,24 +25,24 @@ public class UsuarioBuilderOld {
     }
 
     // esse metodo só podera ser acessado depois de ter instanciado o builder
-    public barriga.testes.builders.UsuarioBuilderOld comId(Long param) {
+    public barriga.testes.builder.UsuarioBuilderOld comId(Long param) {
         id = param;
         return this;
     }
 
-    public barriga.testes.builders.UsuarioBuilderOld comNome(String param) {
+    public barriga.testes.builder.UsuarioBuilderOld comNome(String param) {
         nome = param;
         return this;
     }
 
 
-    public barriga.testes.builders.UsuarioBuilderOld comEmail(String param) {
+    public barriga.testes.builder.UsuarioBuilderOld comEmail(String param) {
         email = param;
         return this;
     }
 
 
-    public barriga.testes.builders.UsuarioBuilderOld comSenha(String param) {
+    public barriga.testes.builder.UsuarioBuilderOld comSenha(String param) {
         senha = param;
         return this;
     }
