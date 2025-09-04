@@ -2,6 +2,9 @@ package org.example.testes;
 
 import org.example.Calculadora;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -111,4 +114,25 @@ public class CalculadoraTest {
         Assertions.assertEquals("/ by zero", exception.getMessage());
     }
 
+    //parametized tests -> serve para rodar o mesmo teste com varios parametros diferentes
+    @ParameterizedTest
+    @ValueSource(strings = {"Teste1", "Teste2"})
+    public void testString(String param){
+        System.out.println(param);
+        assertNotNull(param);
+    }
+    
+    @ParameterizedTest
+    @CsvSource(value = {
+            "6, 2, 3",
+            "12, -6, -2",
+            "10, 3, 3.3333332538604736",
+            "0, 6, 0"
+    })
+    public void deveDividirCorretamente(int numerador, int denominador, double res){
+        float resultado = calculadora.dividir(numerador, denominador);
+        assertEquals(res, resultado);
+    }
+
 }
+
