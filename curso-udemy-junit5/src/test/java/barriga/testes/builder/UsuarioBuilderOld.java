@@ -1,4 +1,4 @@
-package barriga.testes.builders;
+package barriga.testes.builder;
 
 import barriga.domain.Usuario;
 
