@@ -5,6 +5,7 @@ import barriga.domain.exception.ValidationException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -55,12 +56,10 @@ public class UsuarioTest {
     }
 
     //parametized tests -> serve para rodar o mesmo teste com varios parametros diferentes
-    @ParameterizedTest(name = "[{index}] - {4}")
-    @CsvSource(value = {
-            "1, NULL, user@email.com, 1234567, Nome é obrigatório!",
-            "1, Nome usuario, NULL, 1234567, E-mail é obrigatório!",
-            "1, Nome usuario, user@email.com, NULL, Senha é obrigatória!"
-    }, nullValues = "NULL")
+//    @ParameterizedTest(name = "[{index}] - {4}")
+//    @CsvFileSource(files = "src/test/resources/camposObrigatoriosUsuario.csv", nullValues = "NULL", numLinesToSkip = 1)
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/camposObrigatoriosUsuario.csv", nullValues = "NULL", useHeadersInDisplayName = true)
     @DisplayName("Deve validar os campos obrigatórios")
     public void deveValidarCamposObrigatorios(Long id, String nome, String email, String senha, String mensagemEsperada) {
         ValidationException exception = assertThrows(ValidationException.class, () ->
