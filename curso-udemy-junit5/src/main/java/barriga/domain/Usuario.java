@@ -27,19 +27,19 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Long getId() {
+    public Long id() {
         return id;
     }
 
-    public String getNome() {
+    public String nome() {
         return nome;
     }
 
-    public String getEmail() {
+    public String email() {
         return email;
     }
 
-    public String getSenha() {
+    public String senha() {
         return senha;
     }
 
@@ -53,5 +53,15 @@ public class Usuario {
     @Override
     public int hashCode() {
         return Objects.hash(nome, email, senha);
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                '}';
     }
 }

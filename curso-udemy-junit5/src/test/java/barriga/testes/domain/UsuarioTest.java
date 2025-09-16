@@ -21,10 +21,10 @@ public class UsuarioTest {
         Usuario usuario = umUsuario().agora();
 
         assertAll("Usuario",
-                () -> assertEquals(1L, usuario.getId()),
-                () -> assertEquals("Usuario valido", usuario.getNome()),
-                () -> assertEquals("user@email.com", usuario.getEmail()),
-                () -> assertEquals("1234567", usuario.getSenha())
+                () -> assertEquals(1L, usuario.id()),
+                () -> assertEquals("Usuario valido", usuario.nome()),
+                () -> assertEquals("user@email.com", usuario.email()),
+                () -> assertEquals("1234567", usuario.senha())
         );
     }
 
